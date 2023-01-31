@@ -6,3 +6,4 @@
 3. C++ Program to Add Two Numbers
 4. C++ Program to Find Quotient and Remainder
 5. C++ Program to Find Size of int, float, double and char in Your System
+6. C++ Program to Swap Two Numbers
