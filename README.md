@@ -8,3 +8,4 @@
 5. C++ Program to Find Size of int, float, double and char in Your System
 6. C++ Program to Swap Two Numbers
 7. C++ Program to Check Whether Number is Even or Odd
+8. C++ Program to Check Whether a character is Vowel or Consonant.
