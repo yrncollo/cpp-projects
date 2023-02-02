@@ -10,3 +10,4 @@
 7. C++ Program to Check Whether Number is Even or Odd
 8. C++ Program to Check Whether a character is Vowel or Consonant.
 9. C++ Program to Find Largest Number Among Three Numbers
+10. C++ Program to Find All Roots of a Quadratic Equation
