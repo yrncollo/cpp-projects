@@ -1,4 +1,4 @@
-# This repo will have a private cpp question
+# This repo will have cpp questions
 
 ## questions [Link](https://www.programiz.com/cpp-programming/examples)
 1. C++ "Hello, World!" Program
