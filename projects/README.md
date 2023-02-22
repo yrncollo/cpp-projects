@@ -1,5 +1,5 @@
-```
 ## Projects Ideas
+```
 1. Banking system with all banking facilities like – deposit, withdrawal, foreign exchange to any currency, availability of loans for purchasing vehicles, apartments, houses, setting up business, education loan, management of ATMs and all other features.
 2. Airline flight reservation system (online booking of tickets in different flights for different destinations all over the world, cancellation of tickets, clear display of cancellation amount, refund of amount after cancellation, showing  availability of all flights, showing flights timings for all 7 days of a week, seats availability, seat selection for travelers by giving the complete layout of the seating arrangement inside the flights, food availability/non-availability inside the flights, change of travel dates and amount charged.)
 3. Taxi/cab sharing
