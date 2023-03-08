@@ -2,5 +2,5 @@
 #define MAIN_H
 
 void welcome();
-
+void administrator();
 #endif
