@@ -28,6 +28,9 @@ void welcome()
 	switch (choice) {
 		case 1:
 			administrator();
+			break;
+		case 2:
+			login();
 	
 	}
 	
@@ -43,10 +46,21 @@ void administrator()
 	std::cin >> admPassword;
 	if (admPassword == "WelcomeAdmin" && admUsername == "admin") {
 	
-		std::cout << "\n Login successful";
+		std::cout << "\n Login successful\n";
 	}
 	else {
-		std::cout << "\n Username or Password is invalid";
+		std::cout << "\n Username or Password is invalid\n";
 	}
+
+}
+void login()
+{
+	details details;
+	std::cout << "Welcome to login section\n";
+	std::cout << "Username: ";
+	std::cin >> details.username;
+	std::cout << "Password: ";
+	std::cin >> details.password; 
+
 
 }
