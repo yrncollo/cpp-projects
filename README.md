@@ -25,7 +25,6 @@ git push origin <name-of-your-branch>
 8. Once done navigate to your forked repo and click `Compare & Pull Request` button.
     * This button would bring you to a new page and now you can click on a green button `Create Pull Request`. After creating a Pull Request `(PR)` the moderators shall go through your code and merge to the main branch of the project.
 
-
 ---
 
 
