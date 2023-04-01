@@ -3,37 +3,46 @@
 #include <cstring>
 #include <conio.h>
 
-using namespace std;
 
 class account
 {
 private:
-    string name = "null";
+    std::string name = "null";
     int balance = 0, withdraw, deposit;
-    string pin = "";
+    std::string pin = "";
     char ch;
 
 public:
-    void CreateAccount()
+
+    void CreateAccount();
+    void ChangePin();
+    void PrintBalance();
+    void AddMoney();
+    void WithdrawMoney();
+
+};
+
+
+void account::CreateAccount()
     {
         if (name != "null")
         {
             system("cls");
-            cout << "-----------------------" << endl;
-            cout << "\nAccount has Already been created" << endl;
-            cout << "\n-----------------------" << endl;
+            std::cout << "-----------------------" << std::endl;
+            std::cout << "\nAccount has Already been created" << std::endl;
+            std::cout << "\n-----------------------" << std::endl;
             system("pause");
         }
 
         else
         {
             system("cls");
-            cout << "-----------------------" << endl;
+            std::cout << "-----------------------" << std::endl;
 
-            cout << "\nEnter your Full Name :- ";
-            getline(cin, name);
+            std::cout << "\nEnter your Full Name :- ";
+            getline(std::cin, name);
 
-            cout << "\nSet a Pin :- ";
+            std::cout << "\nSet a Pin :- ";
             while ((ch = getch()) != '\r')
             {
                 if (ch == '\b')
@@ -41,30 +50,30 @@ public:
                     if (pin.length() > 0)
                     {
                         pin.pop_back();
-                        cout << "\b \b";
+                        std::cout << "\b \b";
                     }
                 }
                 else
                 {
                     pin.push_back(ch);
-                    cout << "*";
+                    std::cout << "*";
                 }
             }
 
-            cout << "\n\n***** Account has been created succesfully *****" << endl;
-            cout << "\n-----------------------" << endl;
+            std::cout << "\n\n***** Account has been created succesfully *****" << std::endl;
+            std::cout << "\n-----------------------" << std::endl;
             system("pause");
         }
     }
 
-    void ChangePin()
+void account::ChangePin()
     {
         if (name != "null")
         {
-            string extpin = "";
+            std::string extpin = "";
             system("cls");
-            cout << "-----------------------" << endl;
-            cout << "\nEnter your existing pin :- ";
+            std::cout << "-----------------------" << std::endl;
+            std::cout << "\nEnter your existing pin :- ";
             while ((ch = getch()) != '\r')
             {
                 if (ch == '\b')
@@ -72,19 +81,19 @@ public:
                     if (extpin.length() > 0)
                     {
                         extpin.pop_back();
-                        cout << "\b \b";
+                        std::cout << "\b \b";
                     }
                 }
                 else
                 {
                     extpin.push_back(ch);
-                    cout << "*";
+                    std::cout << "*";
                 }
             }
 
             if (extpin == pin)
             {
-                cout << "\nEnter New Pin :- ";
+                std::cout << "\nEnter New Pin :- ";
                 pin = "";
                 while ((ch = getch()) != '\r')
                 {
@@ -93,103 +102,103 @@ public:
                         if (pin.length() > 0)
                         {
                             pin.pop_back();
-                            cout << "\b \b";
+                            std::cout << "\b \b";
                         }
                     }
                     else
                     {
                         pin.push_back(ch);
-                        cout << "*";
+                        std::cout << "*";
                     }
                 }
 
-                cout << "\n***** Pin Changed succesfully *****" << endl;
-                cout << "\n-----------------------" << endl;
+                std::cout << "\n***** Pin Changed succesfully *****" << std::endl;
+                std::cout << "\n-----------------------" << std::endl;
                 system("pause");
             }
             else
             {
                 system("cls");
-                cout << "-----------------------" << endl;
-                cout << "\nPin does not match please try again" << endl;
-                cout << "\n-----------------------" << endl;
+                std::cout << "-----------------------" << std::endl;
+                std::cout << "\nPin does not match please try again" << std::endl;
+                std::cout << "\n-----------------------" << std::endl;
                 system("pause");
             }
         }
         else
         {
             system("cls");
-            cout << "-----------------------" << endl;
-            cout << "\nNo Account has been created yet \n First Create one account" << endl;
-            cout << "\n-----------------------" << endl;
+            std::cout << "-----------------------" << std::endl;
+            std::cout << "\nNo Account has been created yet \n First Create one account" << std::endl;
+            std::cout << "\n-----------------------" << std::endl;
             system("pause");
         }
     }
 
-    void PrintBalance()
+void account::PrintBalance()
     {
         if (name != "null")
         {
             system("cls");
-            cout << "-----------------------" << endl;
-            cout << "\nAccount Holder Name :- " << name << endl;
-            cout << "Your Savings Account Balance is :- " << balance << " Rupees " << endl;
-            cout << "\n-----------------------" << endl;
+            std::cout << "-----------------------" << std::endl;
+            std::cout << "\nAccount Holder Name :- " << name << std::endl;
+            std::cout << "Your Savings Account Balance is :- " << balance << " Rupees " << std::endl;
+            std::cout << "\n-----------------------" << std::endl;
             system("pause");
         }
         else
         {
             system("cls");
-            cout << "-----------------------" << endl;
-            cout << "\nNo Account has been created yet \n First Create one account" << endl;
-            cout << "\n-----------------------" << endl;
+            std::cout << "-----------------------" << std::endl;
+            std::cout << "\nNo Account has been created yet \n First Create one account" << std::endl;
+            std::cout << "\n-----------------------" << std::endl;
             system("pause");
         }
     }
 
-    void AddMoney()
+void account::AddMoney()
     {
         if (name != "null")
         {
             system("cls");
-            cout << "-----------------------" << endl;
-            cout << "\nHow much money do you want to add :- ";
-            cin >> deposit;
-            cin.ignore();
+            std::cout << "-----------------------" << std::endl;
+            std::cout << "\nHow much money do you want to add :- ";
+            std::cin >> deposit;
+            std::cin.ignore();
             balance = balance + deposit;
 
-            cout << "\nRupees " << deposit << " has been added to your account " << endl;
-            cout << "\n-----------------------" << endl;
+            std::cout << "\nRupees " << deposit << " has been added to your account " << std::endl;
+            std::cout << "\n-----------------------" << std::endl;
             system("pause");
         }
         else
         {
             system("cls");
-            cout << "-----------------------" << endl;
-            cout << "\nNo Account has been created yet \n First Create one account" << endl;
-            cout << "\n-----------------------" << endl;
+            std::cout << "-----------------------" << std::endl;
+            std::cout << "\nNo Account has been created yet \n First Create one account" << std::endl;
+            std::cout << "\n-----------------------" << std::endl;
             system("pause");
         }
     }
 
-    void WithdrawMoney()
+void account::WithdrawMoney()
     {
-        string extpin = "";
+        std::string extpin = "";
 
         if (name == "null")
         {
             system("cls");
-            cout << "-----------------------" << endl;
-            cout << "\nNo Account has been created yet \n First Create one account" << endl;
-            cout << "\n-----------------------" << endl;
+            std::cout << "-----------------------" << std::endl;
+            std::cout << "\nNo Account has been created yet \n First Create one account" << std::endl;
+            std::cout << "\n-----------------------" << std::endl;
             system("pause");
         }
 
         else
         {
             system("cls");
-            cout << "-----------------------" << endl;
-            cout << "\n Enter your pin :- ";
+            std::cout << "-----------------------" << std::endl;
+            std::cout << "\n Enter your pin :- ";
             while ((ch = getch()) != '\r')
             {
                 if (ch == '\b')
@@ -197,109 +206,108 @@ public:
                     if (extpin.length() > 0)
                     {
                         extpin.pop_back();
-                        cout << "\b \b";
+                        std::cout << "\b \b";
                     }
                 }
                 else
                 {
                     extpin.push_back(ch);
-                    cout << "*";
+                    std::cout << "*";
                 }
             }
-            cout << "\n-----------------------" << endl;
+            std::cout << "\n-----------------------" << std::endl;
 
             if (name != "null" && extpin == pin)
             {
                 system("cls");
-                cout << "-----------------------" << endl;
-                cout << "\nHow much money do you want to withdraw :- ";
-                cin >> withdraw;
-                cin.ignore();
+                std::cout << "-----------------------" << std::endl;
+                std::cout << "\nHow much money do you want to withdraw :- ";
+                std::cin >> withdraw;
+                std::cin.ignore();
 
                 if (withdraw <= balance)
                 {
                     balance = balance - withdraw;
-                    cout << "\nRupees " << withdraw << " has been withdrawn from your account " << endl;
+                    std::cout << "\nRupees " << withdraw << " has been withdrawn from your account " << std::endl;
                 }
                 else
                 {
-                    cout << "\n***** Not Enough money in account ***** \nDo you want to take Loan :)" << endl;
+                    std::cout << "\n***** Not Enough money in account ***** \nDo you want to take Loan :)" << std::endl;
                 }
-                cout << "\n-----------------------" << endl;
+                std::cout << "\n-----------------------" << std::endl;
                 system("pause");
             }
             if (name != "null" && extpin != pin)
             {
                 system("cls");
-                cout << "-----------------------" << endl;
-                cout << "\nPin does not match please try again" << endl;
-                cout << "\n-----------------------" << endl;
+                std::cout << "-----------------------" << std::endl;
+                std::cout << "\nPin does not match please try again" << std::endl;
+                std::cout << "\n-----------------------" << std::endl;
                 system("pause");
             }
         }
     }
-};
+
 
 int main()
 {
-    int u;
+    int choice;
     account obj;
 
     do
     {
         system("cls");
 
-        cout << "-----------------------" << endl;
-        cout << " Welcome to Kunal's ATM Banking" << endl;
-        cout << "-----------------------" << endl;
+        std::cout << "-----------------------" << std::endl;
+        std::cout << " Welcome to Kunal's ATM Banking" << std::endl;
+        std::cout << "-----------------------" << std::endl;
 
-        cout << "\n-----------------------" << endl;
-        cout << "\nChoose option by pressing option number eg.1,2,3.." << endl;
+        std::cout << "\n-----------------------" << std::endl;
+        std::cout << "\nChoose option by pressing option number eg.1,2,3.." << std::endl;
 
-        cout << "1.Open a Savings Account" << endl;
-        cout << "2.Change Pin of your Savings Account" << endl;
-        cout << "3.Show Balance in Savings Account" << endl;
-        cout << "4.Add Money to Savings Account" << endl;
-        cout << "5.Withdraw Money form Savings Account" << endl;
+        std::cout << "1.Open a Savings Account" << std::endl;
+        std::cout << "2.Change Pin of your Savings Account" << std::endl;
+        std::cout << "3.Show Balance in Savings Account" << std::endl;
+        std::cout << "4.Add Money to Savings Account" << std::endl;
+        std::cout << "5.Withdraw Money form Savings Account" << std::endl;
 
-        cout << "6.Logout & Exit" << endl;
-        cout << "\n-----------------------" << endl;
+        std::cout << "6.Logout & Exit" << std::endl;
+        std::cout << "\n-----------------------" << std::endl;
 
-        cout << "\n>>";
-        cin >> u;
-        cin.ignore();
+        std::cout << "\n>>";
+        std::cin >> choice;
+        std::cin.ignore();
 
-        if (u == 1)
-        {
-            obj.CreateAccount();
-        }
+	switch (choice) {
+	
+		case 1:
+		    obj.CreateAccount();
+		    break;
+		case 2:
+		    obj.ChangePin();
+		    break;
 
-        if (u == 2)
-        {
-            obj.ChangePin();
-        }
+		case 3:
+		    obj.PrintBalance();
+		    break;
 
-        if (u == 3)
-        {
-            obj.PrintBalance();
-        }
+		case 4:
+		    obj.AddMoney();
+		    break;
+		case 5:
+		    obj.WithdrawMoney();
+		    break;
+		default:
+		    std::cout << "Choose from 1-5";
 
-        if (u == 4)
-        {
-            obj.AddMoney();
-        }
+	}
 
-        if (u == 5)
-        {
-            obj.WithdrawMoney();
-        }
-
-    } while (u != 6);
+    } while (choice == 0);
 
     system("cls");
-    cout << "-----------------------" << endl;
-    cout << "\nThank you for trying this program" << endl;
-    cout << "\n-----------------------" << endl;
+    std::cout << "-----------------------" << std::endl;
+    std::cout << "\nThank you for trying this program" << std::endl;
+    std::cout << "\n-----------------------" << std::endl;
     system("pause");
     return 0;
 }
