@@ -13,7 +13,17 @@ private:
     char ch;
 
 public:
-    void CreateAccount()
+
+    void CreateAccount();
+    void ChangePin();
+    void PrintBalance();
+    void AddMoney();
+    void WithdrawMoney();
+
+};
+
+
+void account::CreateAccount()
     {
         if (name != "null")
         {
@@ -56,7 +66,7 @@ public:
         }
     }
 
-    void ChangePin()
+void account::ChangePin()
     {
         if (name != "null")
         {
@@ -125,7 +135,7 @@ public:
         }
     }
 
-    void PrintBalance()
+void account::PrintBalance()
     {
         if (name != "null")
         {
@@ -146,7 +156,7 @@ public:
         }
     }
 
-    void AddMoney()
+void account::AddMoney()
     {
         if (name != "null")
         {
@@ -171,7 +181,7 @@ public:
         }
     }
 
-    void WithdrawMoney()
+void account::WithdrawMoney()
     {
         std::string extpin = "";
 
@@ -237,7 +247,7 @@ public:
             }
         }
     }
-};
+
 
 int main()
 {
