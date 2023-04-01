@@ -3,6 +3,7 @@
 #include <cstring>
 #include <conio.h>
 
+void clear_screen();
 
 class account
 {
@@ -27,7 +28,7 @@ void account::CreateAccount()
     {
         if (name != "null")
         {
-            system("cls");
+            clear_screen();
             std::cout << "-----------------------" << std::endl;
             std::cout << "\nAccount has Already been created" << std::endl;
             std::cout << "\n-----------------------" << std::endl;
@@ -36,7 +37,7 @@ void account::CreateAccount()
 
         else
         {
-            system("cls");
+            clear_screen();
             std::cout << "-----------------------" << std::endl;
 
             std::cout << "\nEnter your Full Name :- ";
@@ -71,7 +72,7 @@ void account::ChangePin()
         if (name != "null")
         {
             std::string extpin = "";
-            system("cls");
+            clear_screen();
             std::cout << "-----------------------" << std::endl;
             std::cout << "\nEnter your existing pin :- ";
             while ((ch = getch()) != '\r')
@@ -118,7 +119,7 @@ void account::ChangePin()
             }
             else
             {
-                system("cls");
+                clear_screen();
                 std::cout << "-----------------------" << std::endl;
                 std::cout << "\nPin does not match please try again" << std::endl;
                 std::cout << "\n-----------------------" << std::endl;
@@ -127,7 +128,7 @@ void account::ChangePin()
         }
         else
         {
-            system("cls");
+            clear_screen();
             std::cout << "-----------------------" << std::endl;
             std::cout << "\nNo Account has been created yet \n First Create one account" << std::endl;
             std::cout << "\n-----------------------" << std::endl;
@@ -139,7 +140,7 @@ void account::PrintBalance()
     {
         if (name != "null")
         {
-            system("cls");
+            clear_screen();
             std::cout << "-----------------------" << std::endl;
             std::cout << "\nAccount Holder Name :- " << name << std::endl;
             std::cout << "Your Savings Account Balance is :- " << balance << " Rupees " << std::endl;
@@ -148,7 +149,7 @@ void account::PrintBalance()
         }
         else
         {
-            system("cls");
+            clear_screen();
             std::cout << "-----------------------" << std::endl;
             std::cout << "\nNo Account has been created yet \n First Create one account" << std::endl;
             std::cout << "\n-----------------------" << std::endl;
@@ -160,7 +161,7 @@ void account::AddMoney()
     {
         if (name != "null")
         {
-            system("cls");
+            clear_screen();
             std::cout << "-----------------------" << std::endl;
             std::cout << "\nHow much money do you want to add :- ";
             std::cin >> deposit;
@@ -173,7 +174,7 @@ void account::AddMoney()
         }
         else
         {
-            system("cls");
+            clear_screen();
             std::cout << "-----------------------" << std::endl;
             std::cout << "\nNo Account has been created yet \n First Create one account" << std::endl;
             std::cout << "\n-----------------------" << std::endl;
@@ -187,7 +188,7 @@ void account::WithdrawMoney()
 
         if (name == "null")
         {
-            system("cls");
+            clear_screen();
             std::cout << "-----------------------" << std::endl;
             std::cout << "\nNo Account has been created yet \n First Create one account" << std::endl;
             std::cout << "\n-----------------------" << std::endl;
@@ -196,7 +197,7 @@ void account::WithdrawMoney()
 
         else
         {
-            system("cls");
+            clear_screen();
             std::cout << "-----------------------" << std::endl;
             std::cout << "\n Enter your pin :- ";
             while ((ch = getch()) != '\r')
@@ -219,7 +220,7 @@ void account::WithdrawMoney()
 
             if (name != "null" && extpin == pin)
             {
-                system("cls");
+                clear_screen();
                 std::cout << "-----------------------" << std::endl;
                 std::cout << "\nHow much money do you want to withdraw :- ";
                 std::cin >> withdraw;
@@ -239,7 +240,7 @@ void account::WithdrawMoney()
             }
             if (name != "null" && extpin != pin)
             {
-                system("cls");
+                clear_screen();
                 std::cout << "-----------------------" << std::endl;
                 std::cout << "\nPin does not match please try again" << std::endl;
                 std::cout << "\n-----------------------" << std::endl;
@@ -256,7 +257,7 @@ int main()
 
     do
     {
-        system("cls");
+        clear_screen();
 
         std::cout << "-----------------------" << std::endl;
         std::cout << " Welcome to Kunal's ATM Banking" << std::endl;
@@ -304,10 +305,20 @@ int main()
 
     } while (choice == 0);
 
-    system("cls");
+    clear_screen();
     std::cout << "-----------------------" << std::endl;
     std::cout << "\nThank you for trying this program" << std::endl;
     std::cout << "\n-----------------------" << std::endl;
     system("pause");
     return 0;
+}
+
+
+void clear_screen()
+{
+#ifdef WINDOWS
+	std::system ("cls");
+#else 
+	std::system("clear");
+#endif
 }
