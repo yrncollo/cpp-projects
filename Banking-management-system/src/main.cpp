@@ -241,7 +241,7 @@ public:
 
 int main()
 {
-    int u;
+    int choice;
     account obj;
 
     do
@@ -265,35 +265,34 @@ int main()
         std::cout << "\n-----------------------" << std::endl;
 
         std::cout << "\n>>";
-        std::cin >> u;
+        std::cin >> choice;
         std::cin.ignore();
 
-        if (u == 1)
-        {
-            obj.CreateAccount();
-        }
+	switch (choice) {
+	
+		case 1:
+		    obj.CreateAccount();
+		    break;
+		case 2:
+		    obj.ChangePin();
+		    break;
 
-        if (u == 2)
-        {
-            obj.ChangePin();
-        }
+		case 3:
+		    obj.PrintBalance();
+		    break;
 
-        if (u == 3)
-        {
-            obj.PrintBalance();
-        }
+		case 4:
+		    obj.AddMoney();
+		    break;
+		case 5:
+		    obj.WithdrawMoney();
+		    break;
+		default:
+		    std::cout << "Choose from 1-5";
 
-        if (u == 4)
-        {
-            obj.AddMoney();
-        }
+	}
 
-        if (u == 5)
-        {
-            obj.WithdrawMoney();
-        }
-
-    } while (u != 6);
+    } while (choice == 0);
 
     system("cls");
     std::cout << "-----------------------" << std::endl;
