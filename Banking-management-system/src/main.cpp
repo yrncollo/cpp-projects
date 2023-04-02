@@ -5,6 +5,18 @@
 
 void clear_screen();
 
+struct details
+{
+	std::string Fname, Lname;
+	int Day,Month,Year; //dob
+	std::string city, country;
+	int contact;
+	std::string password, confrm_pass;
+	char gender;
+
+};
+
+
 class account
 {
 private:
@@ -26,45 +38,70 @@ public:
 
 void account::CreateAccount()
     {
-        if (name != "null")
-        {
-            clear_screen();
-            std::cout << "-----------------------" << std::endl;
-            std::cout << "\nAccount has Already been created" << std::endl;
-            std::cout << "\n-----------------------" << std::endl;
-            system("pause");
-        }
+	    details Det;
+	    int month_check, numdays;
 
-        else
-        {
-            clear_screen();
-            std::cout << "-----------------------" << std::endl;
 
-            std::cout << "\nEnter your Full Name :- ";
-            getline(std::cin, name);
 
-            std::cout << "\nSet a Pin :- ";
-            while ((ch = getch()) != '\r')
-            {
-                if (ch == '\b')
-                {
-                    if (pin.length() > 0)
-                    {
-                        pin.pop_back();
-                        std::cout << "\b \b";
-                    }
-                }
-                else
-                {
-                    pin.push_back(ch);
-                    std::cout << "*";
-                }
-            }
+	    // Should rewrite this function
+	    std::cout << "Create New account" << std::endl; 
+	    std::cout << "Enter first name: ";
+	    std::cin >> Det.Fname; 
+	    std::cout << "Enter last name: ";
+	    std::cin >> Det.Lname;
+	    std::cout << "Enter mobile No: +254 7";
+	    std::cin >> Det.contact;
+	    std::cout << "Date of Birth: \n";
+Y:
+	    std::cout << "\t      Year: ";
+	    std::cin >> Det.Year;
+	    if (Det.Year >= 1923 && Det.Year <= 2013) {
+M:
+		    std::cout << "\t      Month: ";
+		    std::cin >> Det.Month;
 
-            std::cout << "\n\n***** Account has been created succesfully *****" << std::endl;
-            std::cout << "\n-----------------------" << std::endl;
-            system("pause");
-        }
+		    if (Det.Month <= 12 && Det.Month > 0) {
+D:
+			    std::cout << "\t      Day: ";
+			    std::cin >> Det.Day;
+
+
+
+		    switch (Det.Month) {
+			    case 2:
+				    if (Det.Year % 4 == 0 && (Det.Year % 100 != 0 || Det.Year % 400 == 0)) {
+					numdays = 29; // Leap year
+				    } else {
+					numdays = 28;
+				    }
+				  break;
+			    case 4:
+			    case 6:
+			    case 9:
+			    case 11:
+				    numdays = 30;
+				    break;
+			    default:
+				    numdays = 31;
+				    break;
+		    }
+
+
+		    if (Det.Day <= numdays ) {
+		    
+		    }else {
+			    goto D;
+		    }
+
+	    }else {
+		    goto M;
+	    }
+	} else {
+		goto Y;
+	}
+
+
+
     }
 
 void account::ChangePin()
@@ -168,7 +205,7 @@ void account::AddMoney()
             std::cin.ignore();
             balance = balance + deposit;
 
-            std::cout << "\nRupees " << deposit << " has been added to your account " << std::endl;
+            std::cout << "\n$ " << deposit << " has been added to your account " << std::endl;
             std::cout << "\n-----------------------" << std::endl;
             system("pause");
         }
@@ -260,7 +297,7 @@ int main()
         clear_screen();
 
         std::cout << "-----------------------" << std::endl;
-        std::cout << " Welcome to Kunal's ATM Banking" << std::endl;
+        std::cout << " Welcome to OpenSource's ATM Banking" << std::endl;
         std::cout << "-----------------------" << std::endl;
 
         std::cout << "\n-----------------------" << std::endl;
